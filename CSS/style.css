@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Koulen', sans-serif;
+}
+.container{
+    width: 50% !important;
+    height: 100vh;
+    border: 2px solid gray;
+    border-radius: 30px;
+    margin-left: 5px;
+}
+.input-group-text{
+    width: 20%;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
+.button button{
+    margin-left: 10px;
+}
+.container .logo img{
+    margin-right: 30px;
+    width: 100px;
+    height: 100px;
+}
+

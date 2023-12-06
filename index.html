@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELECTRICITE DU CAMBODGE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div class="container-fluid d-flex p-3">
+        <div class="container bg-light">
+            <div class="logo d-flex align-items-center p-4">
+                <img src="Image/EDC logo.png" alt="">
+                <h2 class="text-primary">អគ្គីសនីកម្ពុជា</h2>
+            </div>
+            <h2 class="d-flex justify-content-center text-primary">សូមបញ្ចូលទិន្នន័យ</h2>
+            <div class="input-group pt-5">
+                <span class="input-group-text">ឈ្មោះអតិថិជន:</span>
+                <input type="text" class="form-control" id="txtname" placeholder="បញ្ចូលឈ្មោះរបស់អ្នក">
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text">លេខទូរស្ទព័:</span>
+                <input type="number" class="form-control" id="txtnum" placeholder="បញ្ចូលលេខទូរស្ទព័របស់អ្នក (+855)">
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text">លេខកុងទ័រចាស់:</span>
+                <input type="number" class="form-control" id="txtold" placeholder="បញ្ចូលលេខកុងទ័រចាស់របស់អ្នក">
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text">លេខកុងទ័រថ្មី:</span>
+                <input type="number" class="form-control" id="txtnew" placeholder="បញ្ចូលលេខកុងទ័រថ្មីរបស់អ្នក">
+            </div>
+            <div class="form-check pt-3 ps-5">
+                <label class="form-check-label">សម្រាម</label>
+                <input class="form-check-input" type="checkbox" value="10000" id="txttrash" name="txttrash" onclick="validate()">
+            </div>
+            <div class="button pt-3">
+                <button type="button" class="btn btn-outline-primary" onclick="Calculate()">គណនា</button>
+                <button type="button" class="btn btn-outline-danger" onclick="Del()">លុប</button>
+            </div>
+            <div class="note mt-5 ms-5">
+                <div class="price-list">
+                  <ol>
+                    <li>ប្រសិនបើប្រើភ្លើងអស់ចន្លោះ <span>0Kw ដល់ 50Kw</span> (គិត <span>500រៀល ក្នុង 1kw</span>)</li>
+                    <li>ប្រសិនបើប្រើភ្លើងអស់ចន្លោះ <span>51Kw ដល់ 100Kw</span> (គិត <span>1000រៀល ក្នុង 1kw</span>)</li>
+                    <li>ប្រសិនបើប្រើភ្លើងអស់ចន្លោះ <span>101Kw ដល់ 150Kw</span> (គិត <span>1500រៀល ក្នុង 1kw</span>)</li>
+                    <li>ប្រសិនបើប្រើភ្លើងអស់ចន្លោះ <span>151Kw ដល់ 200Kw</span> (គិត <span>2000រៀល ក្នុង 1kw</span>)</li>
+                    <li>ប្រសិនបើប្រើភ្លើងច្រើនជាង <span>200Kw</span> (គិត <span>2500រៀល ក្នុង 1kw</span>)</li>
+                  </ol>
+                </div>
+              </div>
+        </div>
+        <div class="container bg-info ">
+           <div class="logo d-flex align-items-center p-4">
+            <img src="Image/EDC logo.png" alt="">
+            <h2 class="text-light">អគ្គីសនីកម្ពុជា</h2>
+           </div>
+           <h2 class="d-flex justify-content-center text-light">វិក័យប័ត្រប្រចាំខែ</h2>
+           <div class="contant mt-5">
+            <div class="input-group">
+                <span class="input-group-text w-25">ឈ្មោះអតិថិជន:</span>
+                <span class="input-group-text w-75 bg-light ps-3" id="name"></span>
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text w-25">លេខទូរស្ទព័:</span>
+                <span class="input-group-text w-75 bg-light ps-3" id="telnum"></span>
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text w-25">លេខកុងទ័រចាស់:</span>
+                <span class="input-group-text w-75 bg-light ps-3" id="old"></span>
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text w-25">លេខកុងទ័រថ្មី:</span>
+                <span class="input-group-text w-75 bg-light ps-3" id="new"></span>
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text w-25">ចំនួនប្រើក្នងខែនេះៈ</span>
+                <span class="input-group-text w-75 bg-light ps-3" id="kwtotal"></span>
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text w-25">សម្រាមៈ</span>
+                <span class="input-group-text w-75 bg-light ps-3" id="trash"></span>
+            </div>
+            <div class="input-group pt-3">
+                <span class="input-group-text w-25">តម្លៃសរុបៈ</span>
+                <span class="input-group-text w-75 bg-light ps-3" id="total"></span>
+            </div>
+           </div>
+        </div>
+    </div>
+<script src="JavaScript/script.js"></script>
+</body>
+</html>
